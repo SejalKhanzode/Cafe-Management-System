@@ -19,12 +19,12 @@ const CafeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profileImg: {
+  profile: {
     type: String,
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Owner",
+    ref: "User",
   },
   dishes: [
     {

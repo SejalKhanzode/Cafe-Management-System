@@ -89,7 +89,7 @@ exports.getCafeDetails = async(req, res)=>{
 
         const cafeDetails = await Cafe.find(
             {_id:cafeId}
-        )
+        ).populate("dishes");
 
               if(!cafeDetails) {
                 return res.status(400).json({

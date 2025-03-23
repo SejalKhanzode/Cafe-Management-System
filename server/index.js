@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 
 const userRoutes = require("./routes/User");
-const cafeRoutes = require("./routes/Cafe")
+const cafeRoutes = require("./routes/Cafe");
+const menuRoutes = require("./routes/Dish");
+const orderRoutes = require("./routes/Order")
 
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
@@ -26,7 +28,9 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", userRoutes);
-app.use("/api/cafe", cafeRoutes)
+app.use("/api/cafe", cafeRoutes);
+app.use("/api/menu", menuRoutes);
+app.use("/api/order", orderRoutes)
 
 app.get("/", (req, res) => {
 	return res.json({
